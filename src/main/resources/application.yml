@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: msavaliadorcredito
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: guest
+    password: guest
+
+server:
+  port: 0
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-user:eureka-user@localhost:8761/eureka
+  instance:
+    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+
+
+mq:
+  queues:
+    emissao-cartoes: emissao-cartoes
